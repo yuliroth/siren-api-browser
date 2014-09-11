@@ -1,0 +1,25 @@
+<accordion-heading>
+    <span ng-show="action.title">{{action.title}}</span>
+    <span ng-show="!action.title">{{action.name}}</span>
+</accordion-heading>
+<tabset>
+    <tab heading="Form">
+        <div ng-show="action.fields.length">
+            <form class="form-horizontal">
+
+                <br/>
+                <srn-action value="action"></srn-action>
+                <br/>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-default" ng-click="execute(action)">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </tab>
+    <tab heading="Source">
+        <pre>{{ action | prettify }}</pre>
+    </tab>
+</tabset>

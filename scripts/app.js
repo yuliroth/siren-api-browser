@@ -44,13 +44,22 @@ angular
       });
     };
   })
+  .directive('actionDirective', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            action: '=action'
+        },
+        templateUrl: 'partials/action.html'
+    };
+  })
   .directive('srnAction', ['$compile', 'navigator', function($compile, navigator) {
     function link(scope, element, attrs) {
       if (!scope.action) {
         return;
       }
 
-      var container = $('<div>');
+      var container = $('<div class="yuli">');
       var visible = false;
 
       for(var i = 0; i < scope.action.fields.length; i++) {

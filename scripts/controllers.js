@@ -98,9 +98,11 @@ SurfaceCtrls.EntityCtrl = function($scope, $state, $http, $location, navigator) 
     $scope.main.class = JSON.stringify(data.class);
     $scope.main.actions = data.actions;
 
+
     if (data.entities) {
       angular.forEach(data.entities, function(entity) {
         entity.properties = JSON.stringify(entity.properties, null, 2);
+        entity.actions = entity.actions;
         var heading = [];
 
         if (entity.class) {
